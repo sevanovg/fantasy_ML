@@ -17,9 +17,9 @@ def dump_player_history_json():
         for player in players:
             player_id = player['id']
 
-            #dump json file for each player's history
+            #dump json file for each player's summary
             player_url = "https://fantasy.premierleague.com/api/element-summary/" + str(player_id) + "/"
-            path = "player_history/" + str(player_id) + ".json"
+            path = "player_stats/" + str(player_id) + ".json"
             write_json(player_url, path)
     
 if __name__ == "__main__":

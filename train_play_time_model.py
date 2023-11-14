@@ -20,7 +20,7 @@ def train():
     optimizer_non_lin = torch.optim.Adam(model_non_lin.parameters(), lr=0.001)
     criterion = torch.nn.MSELoss()
 
-    num_epochs = 100
+    num_epochs = 50
     losses = []
 
     for epoch in tqdm.tqdm(range(num_epochs), desc="Training"):
@@ -56,6 +56,8 @@ def train():
         print('train_loss_non_lin after epoch', epoch, "is", train_loss_non_lin)
         print('test_loss_lin after epoch', epoch, "is", test_loss_lin)
         print('test_loss_non_lin after epoch', epoch, "is", test_loss_non_lin)
+
+    torch.save(model_lin, 'play_time_prediction_model.pth')
 
 if __name__ == "__main__":
     train()
